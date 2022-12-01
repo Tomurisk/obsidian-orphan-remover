@@ -30,6 +30,7 @@ int main()
 				getline(GetDirectories, Directory);
 				Directories.push_back(Directory);
 			}
+			Directories.pop_back();
 
 			GetDirectories.close();
 
@@ -42,6 +43,7 @@ int main()
 				getline(GetFiles, File);
 				Files.push_back(File);
 			}
+			Files.pop_back();
 
 			GetFiles.close();
 
@@ -54,6 +56,7 @@ int main()
 				getline(GetAttachments, Attachment);
 				Attachments.push_back(Attachment);
 			}
+			Attachments.pop_back();
 
 			GetAttachments.close();
 
@@ -80,10 +83,10 @@ int main()
 
 				ImpFiles.close();
 
-				for (unsigned i; i < Attachments.size(); ++i)
+				for (unsigned j = 0; j < Attachments.size(); ++j)
 				{
-					if (File.find(Attachments[i]) != string::npos) {
-						NotOrphans.push_back(Attachments[i]);
+					if (File.find(Attachments[j]) != string::npos) {
+						NotOrphans.push_back(Attachments[j]);
 					}
 				}
 
